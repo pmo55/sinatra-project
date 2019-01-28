@@ -11,10 +11,11 @@ class ReviewsController < ApplicationController
   
   post '/reviews' do
     if logged_in?
-      if params[:product_name]== "" || params[:content]== "" || params[:rating].to_i > 10 || params[:rating].to_i < 0
+      rating = params[:rating].to_i
+      if params[:product_name]== "" || params[:content]== "" || rating > 10 || rating < 0 || rating == 0
         redirect to 'reviews/new'
       else
-        @review = Review.create(product_name: params[:product_name], content: params[:content], rating: params[:rating])
+        @review = Review.create(product_name: params[:product_name], content: params[:content], rating: rating)
         if @review.save
           redirect to "/reviews/#{@review.id}"
         else 
