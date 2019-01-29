@@ -59,15 +59,29 @@ class ReviewsController < ApplicationController
           if @review.update(product_name: params[:product_name], content: params[:content], rating: params[:rating])
             redirect to "/reviews/#{params[:id]}"
           else
-            redirect to "/reviews/#{params[:id]}/edit"
+            redirect to "/"
           end
         else
-          redirect to "/reviews"
+          redirect to "/"
         end
       end
     else
     redirect to "/login"
   end
+end
+
+delete '/reviews/:id/delete' do 
+if logged_in?
+  @review = Review.find_by_id(params[:id])
+  if @review && @review.user == current_user
+    @review.delete
+    redirect to '/'
+  else 
+    redirect to '/'
+  end
+else 
+  redirect to '/login'
+ end
 end
   
 end
