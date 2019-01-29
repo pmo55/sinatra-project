@@ -54,6 +54,7 @@ class ReviewsController < ApplicationController
   patch '/reviews/:id' do
     if logged_in?
       if params[:product_name]== "" || params[:content]== "" || params[:rating].to_i > 10 || params[:rating].to_i < 0 || params[:rating].to_i == 0
+        flash[:message] = "Error"
         redirect to "/reviews/#{params[:id]}/edit"
       else
         @review = Review.find_by_id(params[:id])

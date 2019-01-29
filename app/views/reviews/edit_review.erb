@@ -1,5 +1,7 @@
 <h2>Edit Your Product Review!</h2>
-
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 <form action= "/reviews/<%=@review.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <input type="text" name="product_name" placeholder="Product Name" value="<%=@review.product_name%>">
