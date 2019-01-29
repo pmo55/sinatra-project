@@ -49,4 +49,25 @@ class ReviewsController < ApplicationController
     end
   end
   
+  patch '/reviews/:id' do
+    if logged_in?
+      if params[:product_name]== "" || params[:content]== "" || params[:rating].to_i > 10 || params[:rating].to_i < 0 || params[:rating].to_i == 0
+        redirect to "/reviews/#{params[:id]}/edit"
+      else
+        @review = Review.find_by_id(params[:id])
+        if @review && @review.user == current_user
+          if @review.update(product_name: params[:product_name], content: params[:content], rating: params[:rating])
+            redirect to "/reviews/#{params[:id]}"
+          else
+            redirect to "/reviews/#{params[:id]}/edit"
+          end
+        else
+          redirect to "/reviews"
+        end
+      end
+    else
+    redirect to "/login"
+  end
+end
+  
 end
