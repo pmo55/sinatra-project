@@ -3,7 +3,7 @@
 <p>Review: <%=@review.content%></p>
 
 <p>Rating: <%=@review.rating%></p>
-<p> Author: <%=@review.user.username%></p>
+<p>Author: <%=@review.user.username%></p>
 
 <form method="post" action="/reviews/<%=@review.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
