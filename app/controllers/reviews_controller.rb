@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  
+  use Rack::Flash
   get '/reviews/new' do
     if logged_in?
       erb :'reviews/create_review'
