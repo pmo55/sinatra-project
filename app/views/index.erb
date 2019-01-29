@@ -1,7 +1,7 @@
 <h1>Welcome to Parsa's Gadget Review Site!</h1>
 <h2>Please see all reviews below:</h2><br>
 <% Review.all.each do |review| %>
-<p><a href="/reviews/<%=review.id%>"><%=review.product_name%></a> <%=review.rating%></p>
+<p><a href="/reviews/<%=review.id%>"><%=review.product_name%></a><br> Rating: <%=review.rating%> <br>Author: <%=review.user.username %></p>
 <%end%>
 <% if logged_in? %>
 <h1>Hello, <%=current_user.username%></h1>

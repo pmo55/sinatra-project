@@ -29,7 +29,7 @@ post '/login' do
      session[:user_id] = @user.id
     redirect to '/'
   else
-    redirect to '/signup'
+    redirect to '/'
   end
 
 end
@@ -38,7 +38,7 @@ end
 get '/logout' do
 if logged_in?
   session.clear
-  redirect to '/login'
+  redirect to '/'
 else
   redirect to '/'
 end
