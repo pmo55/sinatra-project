@@ -41,9 +41,9 @@ class ReviewsController < ApplicationController
       @review = Review.find_by_id(params[:id])
       if @review && @review.user == current_user
       erb :'reviews/edit_review'
-    else 
+      else 
       redirect to '/reviews/show_review'
-    end
+      end
     else
       redirect to '/'
     end
