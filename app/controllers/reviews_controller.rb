@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  use Rack::Flash
   get '/reviews/new' do
     if logged_in?
       erb :'reviews/create_review'
@@ -18,7 +17,7 @@ class ReviewsController < ApplicationController
         @review = Review.create(product_name: params[:product_name], content: params[:content], rating: rating)
         @review.user_id = session[:user_id]
         if @review.save
-          redirect to "/reviews/#{@review.id}"
+        redirect to "/reviews/#{@review.id}"
         else 
           redirect to "/reviews/create_review"
         end
