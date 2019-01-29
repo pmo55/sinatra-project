@@ -1,10 +1,13 @@
 <h1>Welcome to Parsa's Gadget Review Site!</h1>
 <h2>Please see all reviews below:</h2><br>
-
-<a href="/signup"> Reviewer Sign Up</a><br>
-<a href="/login"> Reviewer Log In</a><br>
+<% Review.all.each do |review| %>
+<p><a href="/reviews/<%=review.id%>"><%=review.product_name%></a> <%=review.rating%></p>
+<%end%>
 <% if logged_in? %>
 <h1>Hello, <%=current_user.username%></h1>
-<a href="/reviews/new">Create a New Review</a>
-
+<a href="/reviews/new">Create a New Review</a><br>
+<a href="/logout">Logout</a>
+<%else%>
+<a href="/signup"> Reviewer Sign Up</a><br>
+<a href="/login"> Reviewer Log In</a><br>
 <%end%>
