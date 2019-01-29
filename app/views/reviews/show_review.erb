@@ -1,0 +1,12 @@
+<h4>Product Name: <%=@review.product_name%></h4>
+
+<p>Review: <%=@review.content%></p>
+
+<p>Rating: <%=@review.rating%></p>
+
+<form method="post" action="/reviews/<%=@review.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Review">
+</form>
+
+<a href="/reviews/<%=@review.id%>/edit">Edit Review </a>
