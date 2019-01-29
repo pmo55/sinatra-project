@@ -1,0 +1,8 @@
+<h2>Edit Your Product Review!</h2>
+
+<form action= "/reviews/<%=@review.id%>" method="post">
+  <input type="text" name="product_name" placeholder="Product Name">
+ <textarea rows="8" cols="200" name="content" placeholder="Write Review Here"></textarea>  <input type="integer" name=rating placeholder="Rating(1-10)">
+  <input type="submit" placeholder="Create Review">
+
+</form>
