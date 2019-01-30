@@ -42,7 +42,7 @@ end
       if @review && @review.user == current_user
       erb :'reviews/edit_review'
       else
-      redirect to '/reviews/show_review'
+      redirect to '/'
       end
     else
       redirect to '/'
