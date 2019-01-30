@@ -42,6 +42,7 @@ end
       if @review && @review.user == current_user
       erb :'reviews/edit_review'
       else
+        flash[:message] = "You can not edit or delete another author's post!"
       redirect to '/'
       end
     else
