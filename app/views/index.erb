@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %>
 <h1>Welcome to Parsa's Gadget Review Site!</h1>
 <h2>Please see all reviews below:</h2><br>
 <% Review.all.each do |review| %>
