@@ -43,7 +43,7 @@ end
       erb :'reviews/edit_review'
       else
         flash[:message] = "You can not edit or delete another author's post!"
-      redirect to '/'
+        redirect to '/'
       end
     else
       redirect to '/'
