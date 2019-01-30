@@ -1,6 +1,6 @@
 <h2>Create A Product Review!</h2>
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
+<p style="color:red;"><%= flash[:message] %></p>
 <% end %>
 <form action= "/reviews" method="post">
   <input type="text" name="product_name" placeholder="Product Name">

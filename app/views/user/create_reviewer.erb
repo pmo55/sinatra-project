@@ -1,7 +1,7 @@
 <h2>Please Create a Reviewer Account</h2>
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+ <p style="color: red;"><%= flash[:message] %> </p>
+ <% end %>
 
 <form action="/signup" method="POST">
   <input type="text" name="email" placeholder="Email Address">

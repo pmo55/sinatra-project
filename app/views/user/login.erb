@@ -1,6 +1,6 @@
 <h1>Please log in to your reviewer account below:</h1><br>
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
+<p style="color: red;"><%= flash[:message] %> </p>
 <% end %>
 
 <form action="/login" method="post">
