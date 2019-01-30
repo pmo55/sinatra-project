@@ -1,4 +1,8 @@
 <h1>Please log in to your reviewer account below:</h1><br>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <form action="/login" method="post">
   <input type="text" name="email" placeholder="Email">
   <input type="password" name="password" placeholder="Password">

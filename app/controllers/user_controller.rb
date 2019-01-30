@@ -1,4 +1,6 @@
+require 'rack-flash'
 class UserController < ApplicationController
+  use Rack::Flash
 get '/signup' do
   if !logged_in?
     erb:'user/create_reviewer'
@@ -6,8 +8,9 @@ get '/signup' do
 end
 
 post '/signup' do
-  if params[:username] == "" || params[:email]== "" || params[:password]==""
-    redirect to '/signup'
+  if params[:username] == "" || params[:email]== "" || params[:password] == ""
+    flash[:message] = "Error, please complete all fields"
+    erb:'user/create_reviewer'
   else
     @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
     @user.save
@@ -28,7 +31,8 @@ post '/login' do
      session[:user_id] = @user.id
     redirect to '/'
   else
-    redirect to '/'
+    flash[:message] = "Login unsuccessful"
+    erb :'/user/login'
   end
 
 end
