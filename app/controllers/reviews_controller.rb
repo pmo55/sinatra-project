@@ -7,13 +7,12 @@ class ReviewsController < ApplicationController
     else
       redirect to '/'
     end
-
   end
 
   post '/reviews' do
     if logged_in?
       rating = params[:rating].to_i
-      if params[:product_name]== "" || params[:content]== "" || rating > 10 || rating < 0 || rating == 0
+      if params[:product_name] == "" || params[:content] == "" || rating > 10 || rating < 0 || rating == 0
         flash[:message] = "Error, please fill out all fields properly"
         redirect to 'reviews/new'
       else
@@ -22,7 +21,7 @@ class ReviewsController < ApplicationController
         if @review.save
         redirect to "/reviews/#{@review.id}"
         else
-          redirect to "/reviews/create_review"
+        redirect to "/reviews/create_review"
         end
       end
     else
@@ -34,9 +33,8 @@ class ReviewsController < ApplicationController
     if logged_in?
     @review = Review.find_by_id(params[:id])
     erb :'reviews/show_review'
-   end
-
   end
+end
 
   get '/reviews/:id/edit' do
     if logged_in?
@@ -53,7 +51,7 @@ class ReviewsController < ApplicationController
 
   patch '/reviews/:id' do
     if logged_in?
-      if params[:product_name]== "" || params[:content]== "" || params[:rating].to_i > 10 || params[:rating].to_i < 0 || params[:rating].to_i == 0
+      if params[:product_name] == "" || params[:content] == "" || params[:rating].to_i > 10 || params[:rating].to_i < 0 || params[:rating].to_i == 0
         flash[:message] = "Error, please fill out all fields properly"
         redirect to "/reviews/#{params[:id]}/edit"
       else
