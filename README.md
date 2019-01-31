@@ -1,6 +1,6 @@
 # Sinatra Web App: Parsa's Gadget Review Site
 
-This Sinatra based web application is a gadget review website, where users can read reviews, as well as create a reviewer account and review their own devices to publish to the site! 
+This Sinatra based web application is a basic gadget review website, where users can read reviews, as well as create a reviewer account and review their own devices to publish to the site! 
 
 ## Installation
 
