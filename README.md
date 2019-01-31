@@ -4,7 +4,7 @@ This Sinatra based web application is a gadget review website, where users can r
 
 ## Installation
 
-After cloning the file, please run:
+After cloning the repo, please run:
 
     $ bundle
 
