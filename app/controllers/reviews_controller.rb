@@ -77,6 +77,7 @@ if logged_in?
   @review = Review.find_by_id(params[:id])
   if @review && @review.user == current_user
     @review.delete
+    flash[:message] = "Successfully Deleted!"
     redirect to '/'
   else
     flash[:message] = "You can not delete another author's post!"
