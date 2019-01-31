@@ -4,7 +4,11 @@ This Sinatra based web application is a gadget review website, where users can r
 
 ## Installation
 
-After cloning the repo, please run:
+Clone repo by running:
+
+    $ git clone https://github.com/pmo55/sinatra-project.git
+
+After cloning the repo, please  cd into the sinatra-project folder and run:
 
     $ bundle
 
@@ -12,7 +16,7 @@ Then start a shotgun server:
 
     $ shotgun
 
-Take the web address provided in terminal and copy it to your web browser.
+Take the web address provided in the terminal and copy it to your web browser.
 
 ## Contributing
 
