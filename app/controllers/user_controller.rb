@@ -9,7 +9,7 @@ end
 
 post '/signup' do
   if params[:username] == "" || params[:email] == "" || params[:password] == ""
-    flash[:message] = "Error, please complete all fields"
+    flash[:message] = "Error, please complete all fields."
     erb:'user/create_reviewer'
   else
     @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -29,6 +29,7 @@ post '/login' do
   @user = User.find_by(:email => params[:email])
    if @user && @user.authenticate(params[:password])
      session[:user_id] = @user.id
+     flash[:message] = "Login successful!"
     redirect to '/'
   else
     flash[:message] = "Login unsuccessful"

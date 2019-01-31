@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     if logged_in?
       rating = params[:rating].to_i
       if params[:product_name] == "" || params[:content] == "" || rating > 10 || rating < 0 || rating == 0
-        flash[:message] = "Error, please fill out all fields properly"
+        flash[:message] = "Error, please fill out all fields properly."
         redirect to 'reviews/new'
       else
         @review = Review.create(product_name: params[:product_name], content: params[:content], rating: rating)
@@ -53,7 +53,7 @@ end
   patch '/reviews/:id' do
     if logged_in?
       if params[:product_name] == "" || params[:content] == "" || params[:rating].to_i > 10 || params[:rating].to_i < 0 || params[:rating].to_i == 0
-        flash[:message] = "Error, please fill out all fields properly"
+        flash[:message] = "Error, please fill out all fields properly."
         redirect to "/reviews/#{params[:id]}/edit"
       else
         @review = Review.find_by_id(params[:id])
