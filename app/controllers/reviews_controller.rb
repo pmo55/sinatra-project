@@ -63,12 +63,12 @@ class ReviewsController < ApplicationController
           end
         else
           redirect to "/"
+         end
         end
+      else
+       redirect to "/login"
       end
-    else
-    redirect to "/login"
-  end
-end
+    end
 
 delete '/reviews/:id/delete' do
 if logged_in?
