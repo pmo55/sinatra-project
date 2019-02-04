@@ -30,11 +30,9 @@ class ReviewsController < ApplicationController
   end
 
   get '/reviews/:id' do
-    if logged_in?
     @review = Review.find_by_id(params[:id])
     erb :'reviews/show_review'
   end
-end
 
   get '/reviews/:id/edit' do
     if logged_in?
