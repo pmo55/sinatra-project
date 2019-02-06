@@ -8,7 +8,7 @@ get '/signup' do
 end
 
 post '/signup' do
-  if params[:username] == "" || params[:email] == "" || params[:password] == ""
+  if params[:username] == "" || params[:email] == "" || params[:password] == "" || User.find_by(:email => params[:email])
     flash[:message] = "Error, please complete all fields."
     erb:'user/create_reviewer'
   else
