@@ -11,4 +11,7 @@
 </form>
 <br>
 <a href="/reviews/<%=@review.id%>/edit">Edit Review </a><br>
-<a href="/">Home</a>
+<a href="/">Home</a><br>
+<% if logged_in?%>
+<a href='/reviews/new'>Create Another Review</a>
+<%end%>
